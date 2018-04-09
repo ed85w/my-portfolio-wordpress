@@ -11,6 +11,7 @@ function theme_script_enqueue() {
 
 	// css
 	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.4', 'all');
+	wp_enqueue_style('devicons', '//cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css', array() );
 	wp_enqueue_style('customstyle', get_template_directory_uri() . '/css/theme-css.css', array(), '1.0.0', 'all' );
 
 	// js

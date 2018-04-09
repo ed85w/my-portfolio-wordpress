@@ -8,40 +8,30 @@
 	<?php wp_head(); ?>
 </head>
 
-<body data-spy="scroll" data-target="#main-nav" data-offset="0">
-<!-- <body> -->
+<body data-spy="scroll" data-target="#main-nav" data-offset="75">
   
+  <!-- navbar -->
 
-<!-- NAVBAR -->
-	<div class="container-fluid">
-		<!-- <div class="row"> -->
-			<!-- <div class="col-xs-12"> -->
-				<nav class=class="navbar navbar-fixed-top" id="main-nav">
-			  		<div div class="container-fluid text-center" id="navbar-container">
-				    <!-- Brand and toggle get grouped for better mobile display -->
-				    	<div class="navbar-header">
-				      		<button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1" aria-expanded="false">
-				        		<!-- <span class="sr-only">Toggle navigation</span> -->
-				        		<span class="icon-bar"></span>
-				        		<span class="icon-bar"></span>
-				        		<span class="icon-bar"></span>
-				      		</button>
-				    	</div>
-						<div class="collapse navbar-collapse" id="navbar1">
-							<?php 
-							// menu items - set in dashboard
-							wp_nav_menu(array(
-								'theme_location' => 'primary',
-								'container' => false,
-								'menu_class' => 'nav navbar-nav',
-								// add walker dropdown menu
-								'walker' => new Walker_Nav_Primary()
-								)
-							);
+  <div class="container-fluid" >
+    <nav class="navbar navbar-fixed-top" id=main-nav>
+      <div class="container-fluid text-center" id="navbar-container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
 
-							?>
-						</div>
-				  	</div><!-- /.container-fluid -->
-				</nav>
-			<!-- </div> -->
-		<!-- </div> -->
+        <div class="collapse navbar-collapse" id="navbar1"> 
+          <ul class="nav navbar-nav">
+              <li><a href="#home">HOME</a></li>
+              <li><a href="#about">ABOUT ME</a></li>
+              <li><a href="#portfolio">PORTFOLIO</a></li>              
+              <li><a href="#contact">CONTACT</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>

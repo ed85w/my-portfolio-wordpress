@@ -1,5 +1,5 @@
 // prevent $ from conflicting w other frameworks 
-$.noConflict();
+// $.noConflict();
 
 
 jQuery(document).ready(function($){

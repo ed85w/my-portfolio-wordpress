@@ -85,7 +85,7 @@ span.icon-bar {
 /*home page*/
 
 #home {
-  /*background-image: url(img/space.jpeg);*/
+  background-image: url(/wordpress/wp-content/uploads/2018/04/space.jpeg);
   width: 100%;
   height: 100vh;
   margin-top: 70px;
