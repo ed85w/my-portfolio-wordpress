@@ -186,52 +186,31 @@
       </div>
     </div>
 
-    <!-- project 1 -->
+    <!-- projects -->
     <div class="row">
-      <div class="project" id="project1">
-        <div class=" col-sm-7 col-md-7 ">
-          <a href="https://ed85w.github.io/Stream1Project/" target="_blank">
-            <img src="img/project1.png" class="portfolio-img">
-          </a>
-        </div>  
-        <div class="col-sm-5 col-md-5 project-text">
-          <a href="https://ed85w.github.io/Stream1Project/" target="_blank"><h2>REGGAE COVER BAND</h2></a>
-          <h4>A website for a fictional cover band. Created in Angular.js.<br>Hosted on GitHub</h4>
-        </div>        
-      </div>
+
+        <?php 
+    
+          $args = array('post_type' => 'portfolio');
+          $loop = new WP_Query( $args );
+  
+          if( $loop->have_posts() ):
+            
+            global $i;
+            $i = 0;
+            while( $loop->have_posts() ): $loop->the_post(); ?>
+      
+              <?php get_template_part('single', 'portfolio'); ?>
+    
+            <?php $i++; endwhile;
+    
+          endif;
+      
+        ?>
+
     </div>
 
-    <!-- project 2 -->
-    <div class="row">
-      <div class="project" id="project2">
-        <div class="col-sm-7 col-md-7 col-md-push-5">
-          <a href="https://wedding-stationery-shop.herokuapp.com/" target="_blank">
-            <img src="img/project2.png" class="portfolio-img">
-          </a>
-        </div> 
-        <div class="col-sm-5 col-md-5 col-md-pull-7 project-text">        
-          <a href="https://wedding-stationery-shop.herokuapp.com/" target="_blank"><h2>WEDDING STATIONERY SHOP</h2></a>
-          <h4>A simple shop application with basket and Stripe payment function. Created in Django.<br>Hosted on Github, Heroku and AWS</h4>
-        </div>
-      </div>
-    </div>
-
-    <!-- project 3 -->
-    <div class="row">
-      <div class="project" id="project3">
-        <div class="col-sm-7 col-md-7">
-          <a href="https://premier-league-2015-16.herokuapp.com/" target="_blank">
-            <img src="img/project3.png" class="portfolio-img">
-          </a>
-        </div>
-        <div class="col-sm-5 col-md-5 project-text">  
-          <a href="https://premier-league-2015-16.herokuapp.com/" target="_blank"><h2>PREMIER LEAGUE STATISTICS</h2></a>
-          <h4>An interactive statistics page. Created in Flask and using D3.js, DC.js and Crossfilter.<br>Hosted on Github and Heroku </h4>
-        </div>
-      </div>
-    </div>
-  </div>
-
+    
 
 
   <!-- contact -->
