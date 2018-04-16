@@ -57,12 +57,16 @@ h3 {
 
 
 /*active nav item */
-.navbar-nav li a:hover,
-.navbar-nav li a:focus,
-li.active a {
+.nav>li>a:hover,
+.nav>li>a:active,
+.nav>li>a:focus,
+.nav .open>a,
+.nav .open>a:focus,
+.nav .open>a:hover {
   background-color: transparent;
   color: #7f7777;
   font-weight: bold;
+  outline: none; /* stops outline on firefox */
 }
 
 .navbar-header {
@@ -128,24 +132,23 @@ span.icon-bar {
 
 #blur-line {
   opacity: 0;
-  /*animation-name: unblur;*/
+}
+
+/*this class is added to #blur-line on page load*/
+.add_keyframe{
+  animation-name: unblur;
   animation-duration: 2s;
   animation-delay: 0.5s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
   transform: translate3d(0, 0, 0);
 
-  /*-webkit-animation-name: unblur;*/
+  -webkit-animation-name: unblur;
   -webkit-animation-duration: 2s;
   -webkit-animation-delay: 0.5s;
   -webkit-animation-timing-function: ease-out;
   -webkit-animation-fill-mode: forwards;
   -webkit-transform: translate3d(0, 0, 0);
-}
-
-.add_keyframe{
-  animation-name: unblur;
-  -webkit-animation-name: unblur;
 }
 
 /*about*/
@@ -215,6 +218,7 @@ span.icon-bar {
   color: #102633;
 }
 
+/*first 2 projects are small to begin with then zoom into view (using js)*/
 #project1,
 #project2 {
     -ms-transform: scale(0); /* IE 9 */
@@ -223,13 +227,28 @@ span.icon-bar {
     transition: all 1s ease-in-out;
 }
 
-#project3 {
+/*#project3 {
+  position: relative;
+}*/
+
+.project {
+  /*opacity: 0.7;*/
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  /*z-index: -1;   */
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
   position: relative;
 }
 
-#project1::after {
+/*.project::after {
   content: "";
-  background: url(img/wood.jpeg);
   opacity: 0.7;
   top: 0;
   left: 0;
@@ -242,41 +261,8 @@ span.icon-bar {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-}
+}*/
 
-#project2::after {
-  content: "";
-  background: url(img/flowers.jpeg);
-  opacity: 0.3;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}
-
-#project3::after {
-  content: "";
-  background: url(img/grass1.jpeg);
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}
 
 .project {
   height: 550px;

@@ -1,8 +1,15 @@
-// prevent $ from conflicting w other frameworks 
-// $.noConflict();
-
 
 jQuery(document).ready(function($){
+
+	// run keyframe animation once page has loaded
+	$(window).on('load', function() {
+		window.setTimeout(function() {
+			$('#blur-line').addClass('add_keyframe');
+		}, 100);
+	});
+
+
+
 	// Add smooth scrolling to all links
 	$("a").on('click', function(event) {
 
@@ -83,10 +90,4 @@ jQuery(document).ready(function($){
 }); // end of doc ready
 
 
-// run keyframe animation once page has loaded
-$(window).on('load', function() {
-	window.setTimeout(function() {
-		$('#blur-line').addClass('add_keyframe');
-	}, 100);
-});
 

@@ -37,6 +37,12 @@ function test_theme_setup() {
 
 	//register nav 
 	register_nav_menu('primary', 'Primary Header Navigation');
+
+	// remove p tags from the_content
+	remove_filter( 'the_content', 'wpautop' );
+
+	// remove p tags from the_excerpt
+	remove_filter( 'the_excerpt', 'wpautop' );
 }
 
 // call functions to setup theme menu
@@ -58,6 +64,23 @@ add_theme_support( 'custom-header' );
 
 // add post thumbnail image
 add_theme_support( 'post-thumbnails' );
+
+// add extra featured images to portfolio post type
+add_filter( 'kdmfi_featured_images', function( $featured_images ) {
+  $args = array(
+    'id' => 'featured-image-2',
+    'desc' => 'Portfolio item picture',
+    'label_name' => 'Featured Image 2',
+    'label_set' => 'Set featured image 2',
+    'label_remove' => 'Remove featured image 2',
+    'label_use' => 'Set featured image 2',
+    'post_type' => array( 'portfolio' ),
+  );
+
+  $featured_images[] = $args;
+
+  return $featured_images;
+});
 
 
 /*
