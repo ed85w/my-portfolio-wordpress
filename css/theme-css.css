@@ -130,6 +130,28 @@ span.icon-bar {
 }
 
 
+@-webkit-keyframes unblur {
+    0% {
+      opacity: 0;
+      text-shadow: 0 0 8px white;
+    }
+    33% {
+      opacity: 0.33;
+      text-shadow: 0 0 6px white;
+
+    }
+    66% {
+      opacity: 0.66;
+      text-shadow: 0 0 2px white;
+
+    }
+    100% {
+      opacity: 1;
+      text-shadow: 0 0 0;
+    }
+}
+
+
 #blur-line {
   opacity: 0;
 }

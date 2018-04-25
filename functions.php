@@ -33,23 +33,27 @@ add_action('wp_enqueue_scripts', 'theme_script_enqueue');
 // function to setup theme menus
 function test_theme_setup() {
 
-	//add 'menus' item to 'appearance' options 
-	add_theme_support('menus');
-
-	//register nav 
-	register_nav_menu('primary', 'Primary Header Navigation');
-
 	// remove p tags from the_content
 	remove_filter( 'the_content', 'wpautop' );
 
 	// remove p tags from the_excerpt
 	remove_filter( 'the_excerpt', 'wpautop' );
+
 }
 
 // call functions to setup theme menu
 add_action( 'init', 'test_theme_setup');
 
 
+//function to removing menu item
+function post_remove() { 
+
+   remove_menu_page('edit.php');
+
+}
+
+// call function to remove post from admin menu
+add_action('admin_menu', 'post_remove');   
 
 /*
 	=========================================
@@ -82,15 +86,6 @@ add_filter( 'kdmfi_featured_images', function( $featured_images ) {
 
   return $featured_images;
 });
-
-
-/*
-	=========================================
-	INCLUDE WALKER FILE (for custom/bootstrap dropdown nav etc)
-	=========================================
-*/
-
-require get_template_directory() . '/inc/walker.php';
 
 /*
 	=========================================
